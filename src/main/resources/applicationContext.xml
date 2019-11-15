@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  demo1 单例 -->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl" scope="singleton" ></bean>-->
+
+    <!--  demo2 多例-->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl" scope="prototype" ></bean>-->
+
+    <!--    demo3 静态工厂-->
+    <!--        <bean id="userDao" class="com.gulinsi.factory.StaticFactory" factory-method="getUserDao" ></bean>-->
+
+    <!--    demo4 静态工厂-->
+    <!--    <bean id="factory" class="com.gulinsi.factory.DynamicFactory" ></bean>
+        <bean id="userDao" factory-bean="factory" factory-method="getUserDao" ></bean>-->
+
+    <!--    demo5 初始化 销毁-->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl" init-method="Init" destroy-method="Destory"></bean>-->
+
+    <!-- demo6 依赖注入 set方法 p命名空间 打开set方法-->
+    <!--   <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl"></bean>
+        <bean id="userService" class="com.gulinsi.service.impl.UserServiceImpl">
+            <property name="userDao" ref="userDao"></property>&lt;!&ndash;name代表set属性名&ndash;&gt;
+        </bean>-->
+    <!--
+    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.gulinsi.service.impl.UserServiceImpl" p:userDao-ref="userDao"/>
+    -->
+
+    <!-- demo7 依赖注入 构造方法 -->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl"></bean>
+        <bean id="userService" class="com.gulinsi.service.impl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>&lt;!&ndash;name代表构造方法参数名&ndash;&gt;
+        </bean>-->
+
+    <!--    demo8 普通数据类型 set -->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl">
+            <property name="name" value="zhangsan"></property>
+            <property name="age" value="13"></property>
+        </bean>-->
+    <!--    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl">
+            <constructor-arg name="name" value="zhangsan"></constructor-arg>
+            <constructor-arg name="age" value="18"></constructor-arg>
+        </bean>-->
+
+    <!--   demo9 集合数据类型  set-->
+<!--    <bean id="user1" class="com.gulinsi.domain.User">
+        <property name="name" value="张三"/>
+        <property name="addr" value="天津"/>
+    </bean>
+    <bean id="user2" class="com.gulinsi.domain.User">
+        <property name="name" value="李四"/>
+        <property name="addr" value="北京"/>
+    </bean>
+    <bean id="userDao" class="com.gulinsi.dao.impl.UserDaoImpl">
+        <property name="list">
+            <list >
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="u1" value-ref="user1"></entry>
+                <entry key="u2" value-ref="user2"></entry>
+            </map>
+        </property>
+        <property name="prop">
+            <props>
+                <prop key="p1">ppp1</prop>
+                <prop key="p2">ppp2</prop>
+                <prop key="p3">ppp3</prop>
+            </props>
+        </property>
+    </bean>-->
+
+<import resource="applicationContext-user.xml"/>
+</beans>
